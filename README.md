@@ -1,4 +1,4 @@
--- 5. Discount bucket analysis--
+-- 1. Discount bucket analysis--
 SELECT
     CASE
         WHEN discount_pct BETWEEN  0 AND  5 THEN '0-5%'
@@ -16,7 +16,7 @@ GROUP BY discount_range
 ORDER BY discount_range;
 
 
- -- 4. Monthly trend--
+ -- 2. Monthly trend--
 SELECT month,
        COUNT(*)              AS txns,
        ROUND(SUM(revenue),2) AS revenue,
@@ -25,7 +25,7 @@ FROM transactions
 GROUP BY month
 ORDER BY month;
 
--- Q2: Monthly Revenue and Profit Trends--
+-- Q3: Monthly Revenue and Profit Trends--
 SELECT month,
     CASE 
         WHEN 1  THEN 'January'   WHEN 2  THEN 'February' WHEN 3  THEN 'March'
